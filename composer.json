@@ -1,6 +1,6 @@
 {
     "name": "james2doyle/slim-starter",
-    "description": "A Slim Framework starting project",
+    "description": "A Slim Framework starting project with JWT, controllers, models, migrations, seeds, and testing",
     "keywords": ["microframework", "rest", "router", "psr7"],
     "homepage": "http://github.com/james2doyle/slim-starter",
     "license": "MIT",
