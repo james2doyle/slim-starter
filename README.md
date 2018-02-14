@@ -33,6 +33,7 @@ APP_NAME=slim-app
 APP_URL=slim.localhost
 APP_DEBUG=true
 JWT_SECRET=supersecretdefaultkeyyoushouldnotcommittogithub
+# used for monolog critical hook - can be empty
 SLACK_WEBHOOK=https://hooks.slack.com/services/SOME/SLACK/CRAZY-URL
 DB_ADAPTER=mysql
 DB_HOST=localhost
