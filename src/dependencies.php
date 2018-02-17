@@ -13,6 +13,18 @@ $container['jwt'] = function ($c) {
     return new \StdClass;
 };
 
+$container['httpCache'] = function () {
+    return new \Slim\HttpCache\CacheProvider();
+};
+
+$container['cache'] = function () {
+    $cacheInstance = \phpFastCache\CacheManager::getInstance(getenv('CACHE_DRIVER'), [
+        'path' => __DIR__ . '/../tmp',
+        'defaultTtl' => CACHE_TTL,
+    ]);
+    return new \phpFastCache\Helper\CacheConditionalHelper($cacheInstance);
+};
+
 // monolog
 $container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];

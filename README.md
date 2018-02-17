@@ -6,6 +6,7 @@ Slim Starter
 Additional features:
 
 * JWT support
+* cache support for arbitrary data
 * examples for a few controllers (home, resource, login, stream file)
 * helper composer commands for testing, migrations, seeds, etc.
 * simple queries using EasyDB and Latitude - basically build queries easily without hydration or model classes
@@ -13,6 +14,7 @@ Additional features:
 * support for migrations and seeds with fake data
 * easily test with migrations and seeds
 * simple authentication in tests with `actingAs` method
+* http cache support (etags, cache-control, etc.)
 
 Additional packages:
 
@@ -22,6 +24,8 @@ Additional packages:
 * latitude/latitude
 * robmorgan/phinx
 * fzaninotto/faker
+* slim/http-cache
+* phpfastcache/phpfastcache
 
 ### Sample Env
 
@@ -42,4 +46,7 @@ DB_USER=root
 DB_PASS=root
 DB_PORT=3306
 DB_CHARSET=utf8mb4
+
+CACHE_DRIVER=files
+CACHE_TTL=120
 ```
