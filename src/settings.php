@@ -13,7 +13,7 @@ return [
 
         // Monolog settings
         'logger' => [
-            'name' => getenv('APP_NAME'),
+            'name' => sprintf('[%s] %s', getenv('APP_ENV'), getenv('APP_NAME')),
             'path' => !empty(getenv('DOCKER')) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
