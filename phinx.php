@@ -1,5 +1,8 @@
 <?php
 
+$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 $phinx = [
     'paths' => [
         'migrations' => '%%PHINX_CONFIG_DIR%%/db/migrations',
