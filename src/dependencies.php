@@ -20,7 +20,7 @@ $container['httpCache'] = function () {
 $container['cache'] = function () {
     $cacheInstance = \phpFastCache\CacheManager::getInstance(getenv('CACHE_DRIVER'), [
         'path' => __DIR__ . '/../tmp',
-        'defaultTtl' => CACHE_TTL,
+        'defaultTtl' => getenv('CACHE_TTL'),
     ]);
     return new \phpFastCache\Helper\CacheConditionalHelper($cacheInstance);
 };
