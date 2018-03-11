@@ -26,7 +26,7 @@ class UserApiController
             throw new \Exception('No users found', 404);
         }
         $user = (array)$this->container['user'];
-        $this->container->logger->info(getenv('APP_ENV') . sprintf(' accessed by user "%s"', $user['username']));
+        $this->container->logger->info(sprintf('accessed by user "%s"', $user['username']));
 
         // Render index view
         return $response->withJson([

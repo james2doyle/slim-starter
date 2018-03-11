@@ -13,6 +13,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
     'secret' => getenv('JWT_SECRET'),
     'callback' => function ($request, $response, $arguments) use ($container) {
         $email = $arguments['decoded']->sub;
+        // auth cache for this authenticated user
         $cache_key = 'au-' . crc32($email);
         // this function obeys the cache default TTL
         $user = $container['cache']->get($cache_key, function () use ($container, $email) {
@@ -23,7 +24,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
             if (empty($user[0])) {
                 throw new \Exception('No user found for the given token.', 401);
             }
-            $container['logger']->info(getenv('APP_ENV') . ' fetched fresh user from db');
+            $container['logger']->info('fetched fresh user from db');
             return $user[0];
         });
 

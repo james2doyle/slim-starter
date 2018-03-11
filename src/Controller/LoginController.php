@@ -9,6 +9,11 @@ class LoginController extends BaseController
 {
     public function handle($request, $response, $args)
     {
+        $secret = getenv('JWT_SECRET');
+        if (empty($secret)) {
+            throw new \Exception('No JWT_SECRET set', 500);
+        }
+
         $body = $request->getParsedBody();
 
         $users = new User();
@@ -28,10 +33,6 @@ class LoginController extends BaseController
                 'sub' => $body['email'],
                 'scope' => ['*'],
             ];
-            $secret = getenv('JWT_SECRET');
-            if (empty($secret)) {
-                throw new \Exception('No JWT_SECRET set', 500);
-            }
 
             $token = JWT::encode($payload, $secret, 'HS256');
 

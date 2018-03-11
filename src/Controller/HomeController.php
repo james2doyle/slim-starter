@@ -20,14 +20,14 @@ class HomeController
 
     public function index($request, $response, $args)
     {
-        $this->container->logger->info(getenv('APP_ENV') . " '/{name}' route", $args);
+        $this->container->logger->info("'/{name}' route", $args);
         // Render index view
         return $this->container->renderer->render($response, 'index.phtml', $args);
     }
 
     public function about($request, $response, $args)
     {
-        $this->container->logger->info(getenv('APP_ENV') . " '/about' route", $args);
+        $this->container->logger->info("'/about' route", $args);
 
         $tagged_response = $this->container->httpCache->withEtag($response, crc32('about_' . json_encode($args)));
         return $this->container->renderer->render($tagged_response, 'about.phtml', $args);
