@@ -52,7 +52,7 @@ class BaseModel
             throw new \Exception('Missing required primary_key property', 500);
         }
 
-        $settings = include __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'settings.php';
+        $settings = include(__DIR__ . '/../settings.php');
         $database = $settings['database'][getenv('APP_ENV')];
 
         $this->db = EasyDB::create(
