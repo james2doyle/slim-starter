@@ -27,6 +27,6 @@ class UserApiTest extends BaseTestCase
         $body = json_decode((string)$res->getBody());
 
         $this->assertTrue(is_object($body));
-        $this->assertEquals(5, count($body->data));
+        $this->assertEquals(6, count($body->data));
     }
 }
