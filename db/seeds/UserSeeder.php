@@ -25,6 +25,12 @@ class UserSeeder extends AbstractSeed
             ];
         }, range(0, 4));
 
+        $data = array_merge([[
+            'username' => 'admin',
+            'email' => 'admin@' . getenv('APP_URL'),
+            'password' => password_hash('password', PASSWORD_BCRYPT),
+        ]], $data);
+
         $users = $this->table('users');
         $users->insert($data)
             ->save();
