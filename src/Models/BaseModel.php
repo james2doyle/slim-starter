@@ -13,7 +13,7 @@ use Latitude\QueryBuilder\ValueList;
 class BaseModel
 {
     /**
-     * @var Array
+     * @var array
      */
     private $results;
 
@@ -23,22 +23,22 @@ class BaseModel
     public $db;
 
     /**
-     * @var Mixed (Latitude\QueryBuilder\...)
+     * @var mixed (Latitude\QueryBuilder\...)
      */
     public $query;
 
     /**
-     * @var String
+     * @var string
      */
     protected $table = '';
 
     /**
-     * @var String
+     * @var string
      */
     protected $primary_key = 'id';
 
     /**
-     * @var Array
+     * @var array
      */
     protected $hidden = [];
 
